@@ -1,0 +1,7 @@
+body{
+    margin:0;
+    padding: 0;
+}
+.img-1{
+    background: image("../img/index1.jpg") no-repeat;
+}
