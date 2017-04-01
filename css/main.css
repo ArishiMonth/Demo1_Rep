@@ -1,11 +1,12 @@
 body{
     margin:0;
     padding: 0;
+    position: relative;
 }
 .img-1{
     background: image("../img/index1.png") no-repeat;
 }
-.container-fluid{
+.fluid{
     background-color: #ece4cf;
 }
 .font1{
@@ -126,4 +127,7 @@ body{
     -webkit-animation-delay:-2.0s;
     -moz-animation-delay:-2.0s;
     -o-animation-delay:-2.0s
+}
+.hide{
+    display: none;
 }
