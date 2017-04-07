@@ -131,3 +131,31 @@ body{
 .hide{
     display: none;
 }
+.box1{
+    height: 300px;
+    width: 300px;
+    background: #222 !important;
+    float:left;
+    margin:10px 10px 0 0;
+}
+.box2{
+    height: 300px;
+    width: 300px;
+    background: #2aabd2 !important;
+    float:left;
+    margin:10px 10px 0 0;
+}
+.box3{
+    height: 300px;
+    width: 300px;
+    background: #b92c28 !important;
+    float:left;
+    margin:10px 10px 0 0;
+}
+.panel-heading:hover{
+    cursor:all-scroll;
+}
+.panel-body{
+    width: 100%;
+    height: 100%;
+}

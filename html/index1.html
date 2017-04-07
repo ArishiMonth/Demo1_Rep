@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.css">
-    <title>屯堡小镇</title>
+    <title>练习块移动</title>
 </head>
 <body data-spy="scroll" data-target="#navbar-example">
 <div id="navbar-example">
@@ -22,26 +22,29 @@
         </li>
     </ul>
 </div>
-<div class="container-fluid">
-    <div  id="home1" class="panel panel-default ">
-        <div class="fluid panel-body">
-            <div class="font1">贵州省 安顺市 西秀区</div>
-            <span class="sp-font2">欢迎来到</span>  <div style="text-align: center">
-            <img src="../img/index1.png"   class="img-responsive" alt="Responsive image"/></div>
+<div class="container-fluid"  >
+    <div  id="home1" data-id="1" class="box1 panel   panel-default" draggable="true">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body">
+
         </div>
     </div>
-    <div  id="home2"   class="panel panel-default ">
-        <div class="fluid panel-body">
-            <div class="font1">贵州省 安顺市 西秀区1</div>
-            <span class="sp-font2">欢迎来到</span>  <div style="text-align: center">
-            <img src="../img/index1.png"   class="img-responsive" alt="Responsive image"/></div>
+    <div  id="home2"  data-id="2"  class="box2 panel panel-default " draggable="true">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body">
+
         </div>
     </div>
-    <div  id="home3"   class="panel panel-default ">
-        <div class="fluid panel-body">
-            <div class="font1">贵州省 安顺市 西秀区2</div>
-            <span class="sp-font2">欢迎来到</span>  <div style="text-align: center">
-            <img src="../img/index1.png"   class="img-responsive" alt="Responsive image"/></div>
+    <div  id="home3" data-id="3"  class="box3 panel panel-default" draggable="true">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body">
+
         </div>
     </div>
     <div name="up">
@@ -52,5 +55,5 @@
 
 
 </body>
-<script data-main="js/view/index_main.js" src="js/lib/require/require.min.js"></script>
+<script data-main="../js/view/panelChange_main.js" src="../js/lib/require/require.min.js"></script>
 </html>
