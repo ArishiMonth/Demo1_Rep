@@ -78,12 +78,12 @@ require(["base", "bootstrap","drag"], function (base, bootstrap,drag) {
                         var addx=Math.round(x/event.target.clientWidth),
                             addy=Math.round(y/event.target.clientHeight);
 
-                        $(event.target).css("left",(310*addx+that.cur.position.left)+"px");
-                        $(event.target).css("top",(310*addy+that.cur.position.top)+"px");
-                      var id=  that.getCoverPoint(ui);
-                      if(id!=""){
-                          $(id).css("left",(-310*addx+that.cur.position.left)+"px");
-                          $(id).css("top",(-310*addy+that.cur.position.top)+"px");
+                        $(event.target).css("left",(320*addx+that.cur.position.left)+"px");
+                        $(event.target).css("top",(320*addy+that.cur.position.top)+"px");
+                      var point=  that.getCoverPoint(ui);
+                      if(point.id!=""){
+                          $(point.id).css("left",(-320*addx+point.left)+"px");
+                          $(point.id).css("top",(-320*addy+point.top)+"px");
                       }
                       that.setPanelPoint();
                     }else{
@@ -99,20 +99,23 @@ require(["base", "bootstrap","drag"], function (base, bootstrap,drag) {
             var that=this;
             that.pointLst=[];
             $.each($(".panel-default"),function(e,item){
-                that.pointLst.push({id:$(item).data("id"),left:item.offsetLeft,top:item.offsetTop});
+               var left=$(item)[0].style.left==""?0:Number($(item)[0].style.left.substring(0,$(item)[0].style.left.length-2));
+               var top=$(item)[0].style.top==""?0:Number($(item)[0].style.top.substring(0,$(item)[0].style.top.length-2));
+                that.pointLst.push({id:$(item).data("id"),left:item.offsetLeft,top:item.offsetTop,
+                    scrollLeft:left,scrollTop:top});
             });
         },
         getCoverPoint:function(ui){
             var that=this;
-            var id="";
+            var point={id:""};
             $.each(that.pointLst,function(i,item){
-                if(ui.offset.left>=item.left && ui.offset.left<item.left+300
-                && ui.offset.top>=item.top && ui.offset.top<=item.top+300){//||
-                    id="home"+item.id;
+                if(ui.offset.left+150>=item.left && ui.offset.left+150<item.left+300
+                && ui.offset.top+150>=item.top && ui.offset.top+150<=item.top+300){//||
+                    point={id:"#home"+item.id,left:item.scrollLeft,top:item.scrollTop} ;
                     return;
                 }
             });
-            return id;
+            return point;
      }
 
     };

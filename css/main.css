@@ -136,21 +136,21 @@ body{
     width: 300px;
     background: #222 !important;
     float:left;
-    margin:10px 10px 0 0;
+    margin:20px 20px 0 0 !important;
 }
 .box2{
     height: 300px;
     width: 300px;
     background: #2aabd2 !important;
     float:left;
-    margin:10px 10px 0 0;
+    margin:20px 20px 0 0 !important;
 }
 .box3{
     height: 300px;
     width: 300px;
     background: #b92c28 !important;
     float:left;
-    margin:10px 10px 0 0;
+    margin:20px 20px 0 0 !important;
 }
 .panel-heading:hover{
     cursor:all-scroll;
