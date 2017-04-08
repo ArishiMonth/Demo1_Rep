@@ -45,14 +45,13 @@ require(["base", "bootstrap","drag"], function (base, bootstrap,drag) {
          */
         render: function () {
             this.bindEnvent.upEnvent.call(this);
-            this.setPanelPoint();
+            this.setPanelPoint($("#drag1 .panel-default"));
+            this.bindEnvent.changeTab.call(this);
         },
         bindEnvent:{
             upEnvent:function(){
                 var that=this;
-
-
-                $( ".panel-default" ).draggable( {drag: function( event, ui ) {
+                $( "#drag1 .panel-default" ).draggable( {drag: function( event, ui ) {
 
                 }, start: function( event, ui ) {
                     var obj=document.elementFromPoint(event.clientX,event.clientY);
@@ -85,7 +84,7 @@ require(["base", "bootstrap","drag"], function (base, bootstrap,drag) {
                           $(point.id).css("left",(-320*addx+point.left)+"px");
                           $(point.id).css("top",(-320*addy+point.top)+"px");
                       }
-                      that.setPanelPoint();
+                      that.setPanelPoint($("#drag1 .panel-default"));
                     }else{
                         $(event.target).css("left",that.cur.position.left+"px")
                         $(event.target).css("top",that.cur.position.top+"px")
@@ -93,12 +92,20 @@ require(["base", "bootstrap","drag"], function (base, bootstrap,drag) {
 
                 }
                 });
+            },
+            changeTab:function(){
+                var that=this;
+                $(document).on('click','#navbar-example .nav-tabs>li>a',function(e){home4
+                    var id='#drag'+$(this).data("id");
+                    that.setPanelPoint($(id+" .panel-default"));
+                        $(id).removeClass("hide").siblings(".container-fluid").addClass("hide");
+                });
             }
         },
-        setPanelPoint:function(){
+        setPanelPoint:function(e){home4
             var that=this;
             that.pointLst=[];
-            $.each($(".panel-default"),function(e,item){
+            $.each(e,function(e,item){
                var left=$(item)[0].style.left==""?0:Number($(item)[0].style.left.substring(0,$(item)[0].style.left.length-2));
                var top=$(item)[0].style.top==""?0:Number($(item)[0].style.top.substring(0,$(item)[0].style.top.length-2));
                 that.pointLst.push({id:$(item).data("id"),left:item.offsetLeft,top:item.offsetTop,
@@ -116,7 +123,30 @@ require(["base", "bootstrap","drag"], function (base, bootstrap,drag) {
                 }
             });
             return point;
-     }
+     },
+        /**
+         * 第二种方式
+         * */
+        allowDrop:function(ev){
+            ev.preventDefault();
+        },
+        drag:function(ev){
+            ev.dataTransfer.setData("Text",ev.target.id);
+
+        },
+        drop:function(ev){
+            var that=this;
+            ev.preventDefault();
+            var data=ev.dataTransfer.getData("Text");
+            var currentnode=$(document.getElementById(data));
+            var ui={offset:{left:currentnode.offsetLeft,top:currentnode.offsetTop}}
+           var point= that.getCoverPoint(ui);
+            if(point.id!=""){
+                $(point.id).css("left",(-320*addx+point.left)+"px");
+                $(point.id).css("top",(-320*addy+point.top)+"px");
+            }
+            ev.target.appendChild(document.getElementById(data));
+        }
 
     };
 

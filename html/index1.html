@@ -12,18 +12,50 @@
 <div id="navbar-example">
     <ul class="nav nav-tabs" role="tablist">
        <li>
-           <a href="#home1">home1</a>
+           <a data-id="1" href="javascript:void(0);">利用jQuery-ui实现拖拽方法</a>
        </li>
         <li>
-            <a href="#home2">home2</a>
+            <a data-id="2" href="javascript:void(0);">利用HTML5标准实现拖拽方法</a>
         </li>
         <li>
-            <a href="#home3">home3</a>
+            <a data-id="3" href="javascript:void(0);">home3</a>
         </li>
     </ul>
 </div>
-<div class="container-fluid"  >
-    <div  id="home1" data-id="1" class="box1 panel   panel-default" draggable="true">
+
+    <div  id="drag1" class="container-fluid"  >
+        <div  id="home1" data-id="1" class="box panel   panel-default" style=" background: #222 !important;">
+            <div class="panel-heading">
+
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+        <div  id="home2"  data-id="2"  class="box panel panel-default " style="  background: #2aabd2 !important;">
+            <div class="panel-heading">
+
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+        <div  id="home3" data-id="3"  class="box panel panel-default" style="background: #b92c28 !important;">
+            <div class="panel-heading">
+
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
+<div  id="drag2" class="container-fluid hide" ondrop="panelChange.drop(event)" ondragover="panelChange.allowDrop(event)"
+style="">
+    <!--<div ondrop="panelChange.drop(event)" ondragover="panelChange.allowDrop(event)" >
+
+    </div>-->
+    <div  id="home4" data-id="4" class="box panel   panel-default" draggable="true" ondragstart="panelChange.drag(event)"
+          style="background: #3e8f3e !important;">
         <div class="panel-heading">
 
         </div>
@@ -31,7 +63,11 @@
 
         </div>
     </div>
-    <div  id="home2"  data-id="2"  class="box2 panel panel-default " draggable="true">
+   <!-- <div ondrop="panelChange.drop(event)" ondragover="panelChange.allowDrop(event)" >
+
+    </div>-->
+    <div  id="home5"  data-id="5"  class="box panel panel-default " draggable="true"  ondragstart="panelChange.drag(event)"
+          style="background: #000000 !important;">
         <div class="panel-heading">
 
         </div>
@@ -39,18 +75,20 @@
 
         </div>
     </div>
-    <div  id="home3" data-id="3"  class="box3 panel panel-default" draggable="true">
-        <div class="panel-heading">
+    <!--
+    <div ondrop="panelChange.drop(event)" ondragover="panelChange.allowDrop(event)" >
 
-        </div>
-        <div class="panel-body">
+    </div>-->
+<div  id="home6" data-id="6"  class="box panel panel-default" draggable="true"  ondragstart="panelChange.drag(event)"
+              style="background: #f0ad4e !important;">
+            <div class="panel-heading">
 
+            </div>
+            <div class="panel-body">
+
+            </div>
         </div>
-    </div>
-    <div name="up">
-        <a class="s-xguide-down trans" href="/html/index1.html" onclick="return false;" hidefocus=""></a>
-        <a class="s-xguide-down arrow-1 trans" href="javascript:void(0)" onclick="return false;" hidefocus=""></a>
-    </div>
+</div>
 
 
 
