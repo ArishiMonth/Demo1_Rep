@@ -69,8 +69,13 @@ require(["base", "bootstrap","drag"], function (base, bootstrap,drag) {
                     $(event.target).css("z-index",99);
                     var x=ui.position.left- that.cur.position.left,
                         y=ui.position.top-that.cur.position.top;
-                   // console.log(document.elementFromPoint(event.clientX,event.clientY))
-
+                   // console.log(document.elementFromPoint(event.clientX,event.clientY
+                    if(ui.offset.left<0 || ui.offset.left>=(document.body.clientWidth-event.target.clientWidth) ||
+                        ui.offset.top<0){
+                        $(event.target).css("left",that.cur.position.left+"px")
+                        $(event.target).css("top",that.cur.position.top+"px")
+                        return;
+                    }
                     if(event.target.clientWidth/2<=Math.abs(x) || event.target.clientHeight/2<=Math.abs(y)){
                       //  var addx=x<0?Math.ceil(x/event.target.clientWidth):Math.floor(x/event.target.clientWidth),
                     //        addy=y<0?Math.ceil(y/event.target.clientHeight):Math.floor(y/event.target.clientHeight);
@@ -95,14 +100,14 @@ require(["base", "bootstrap","drag"], function (base, bootstrap,drag) {
             },
             changeTab:function(){
                 var that=this;
-                $(document).on('click','#navbar-example .nav-tabs>li>a',function(e){home4
+                $(document).on('click','#navbar-example .nav-tabs>li>a',function(e){
                     var id='#drag'+$(this).data("id");
                     that.setPanelPoint($(id+" .panel-default"));
                         $(id).removeClass("hide").siblings(".container-fluid").addClass("hide");
                 });
             }
         },
-        setPanelPoint:function(e){home4
+        setPanelPoint:function(e){
             var that=this;
             that.pointLst=[];
             $.each(e,function(e,item){
